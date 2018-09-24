@@ -10,12 +10,13 @@ import android.widget.Toast;
 import java.util.List;
 
 /**
- * Created by Taniro on 18/09/2016.
+ * Created by Taniro on 18/09/2016 atualizado em 23/09/2018
  */
 public class LivroAdapter extends RecyclerView.Adapter {
 
     List<Livro> listaLivro;
     Context context;
+    Livro livroescolhido;
 
     public LivroAdapter (List<Livro> listaLivro, Context context){
         this.listaLivro = listaLivro;
@@ -36,28 +37,16 @@ public class LivroAdapter extends RecyclerView.Adapter {
 
         ViewHolder holder = (ViewHolder) viewholder;
 
-        final Livro livroescolhido = listaLivro.get(position);
+        livroescolhido = listaLivro.get(position);
+
         holder.textViewTitulo.setText(livroescolhido.getTitulo());
         holder.textViewAutor.setText(livroescolhido.getAutor());
         holder.textViewQuantidade.setText(""+livroescolhido.getQuantidade());
-        if(livroescolhido.getLido() == true){
+        if(livroescolhido.getLido()){
             holder.img.setImageResource(R.drawable.open);
         }else{
             holder.img.setImageResource(R.drawable.flat);
         }
-
-        holder.img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (livroescolhido.getLido() == true){
-                    livroescolhido.setLido(false);
-                }else {
-                    livroescolhido.setLido(true);
-                }
-                notifyItemChanged(position);
-            }
-        });
-
 
     }
 

@@ -2,12 +2,13 @@ package tads.eaj.com.bibliotecarecyclerview;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
 /**
- * Created by Taniro on 21/09/2016.
+ * Created by Taniro on 21/09/2016 atualizado em 23/09/2018
  */
 
 /*
@@ -36,6 +37,7 @@ public class RecyclerItemClickListener implements RecyclerView.OnItemTouchListen
                 super.onSingleTapUp(e);
                 View childView = view.findChildViewUnder(e.getX(), e.getY());
                 if (childView != null && mListener != null ) {
+                    Log.i("AULA", "(childView != null && mListener != null)");
                     mListener.onItemClick(childView, view.getChildAdapterPosition(childView));
                 }
                 return true;

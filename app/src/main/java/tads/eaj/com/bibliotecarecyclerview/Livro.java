@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Taniro on 18/09/2016.
+ * Created by Taniro on 18/09/2016 atualizado em 23/09/2018
  */
 public class Livro {
     private String titulo;

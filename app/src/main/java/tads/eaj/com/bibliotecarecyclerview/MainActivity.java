@@ -15,14 +15,16 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    List<Livro> listaLivros;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycleview);
+        final RecyclerView recyclerView = findViewById(R.id.recycleview);
 
-        final List<Livro> listaLivros = Livro.getLivros();
+        listaLivros = Livro.getLivros();
 
         recyclerView.setAdapter(new LivroAdapter(listaLivros, this));
 
@@ -36,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
                 new RecyclerItemClickListener(this, recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
                         Toast.makeText(MainActivity.this, "Clique simples em: "+position, Toast.LENGTH_SHORT).show();
+                        listaLivros.get(position).setLido(!listaLivros.get(position).getLido());
+                        recyclerView.getAdapter().notifyItemChanged(position);
                     }
 
                     @Override

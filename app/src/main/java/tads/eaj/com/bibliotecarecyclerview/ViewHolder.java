@@ -8,9 +8,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * Created by Taniro on 18/09/2016.
+ * Created by Taniro on 18/09/2016 atualizado em 23/09/2018
  */
-public class ViewHolder extends RecyclerView.ViewHolder /*implements View.OnClickListener*/{
+public class ViewHolder extends RecyclerView.ViewHolder {
 
     final TextView textViewTitulo;
     final TextView textViewAutor;
@@ -20,17 +20,10 @@ public class ViewHolder extends RecyclerView.ViewHolder /*implements View.OnClic
     public ViewHolder(View v) {
         super(v);
 
-        textViewTitulo = (TextView) v.findViewById(R.id.titulo);
-        textViewAutor= (TextView) v.findViewById(R.id.autor);
-        textViewQuantidade= (TextView) v.findViewById(R.id.quantidade);
-        img = (ImageView) v.findViewById(R.id.img);
-        //v.setOnClickListener(this);
+        textViewTitulo =  v.findViewById(R.id.titulo);
+        textViewAutor=  v.findViewById(R.id.autor);
+        textViewQuantidade= v.findViewById(R.id.quantidade);
+        img =  v.findViewById(R.id.img);
     }
 
-    /*
-    @Override
-    public void onClick(View view) {
-        Log.i("click", getAdapterPosition()+"" );
-    }
-    */
 }
